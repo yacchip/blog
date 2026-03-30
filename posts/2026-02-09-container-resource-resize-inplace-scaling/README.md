@@ -33,11 +33,11 @@ spec:
         memory: "512Mi"
         cpu: "500m"
       # Define resize policies
-      resizePolicy:
-      - resourceName: cpu
-        restartPolicy: NotRequired
-      - resourceName: memory
-        restartPolicy: RestartContainer
+    resizePolicy:
+    - resourceName: cpu
+      restartPolicy: NotRequired
+    - resourceName: memory
+      restartPolicy: RestartContainer
 ```
 
 The `restartPolicy` can be:
@@ -66,11 +66,11 @@ spec:
       limits:
         cpu: "200m"
         memory: "256Mi"
-      resizePolicy:
-      - resourceName: cpu
-        restartPolicy: NotRequired
-      - resourceName: memory
-        restartPolicy: NotRequired
+    resizePolicy:
+    - resourceName: cpu
+      restartPolicy: NotRequired
+    - resourceName: memory
+      restartPolicy: NotRequired
     ports:
     - containerPort: 80
 ```
@@ -134,11 +134,11 @@ spec:
           limits:
             memory: "2Gi"
             cpu: "1000m"
-          resizePolicy:
-          - resourceName: memory
-            restartPolicy: RestartContainer
-          - resourceName: cpu
-            restartPolicy: NotRequired
+        resizePolicy:
+        - resourceName: memory
+          restartPolicy: RestartContainer
+        - resourceName: cpu
+          restartPolicy: NotRequired
         env:
         - name: JAVA_OPTS
           value: "-Xmx1536m"
@@ -218,11 +218,11 @@ spec:
           limits:
             cpu: "1000m"
             memory: "2Gi"
-          resizePolicy:
-          - resourceName: cpu
-            restartPolicy: NotRequired
-          - resourceName: memory
-            restartPolicy: RestartContainer
+        resizePolicy:
+        - resourceName: cpu
+          restartPolicy: NotRequired
+        - resourceName: memory
+          restartPolicy: RestartContainer
 ```
 
 VPA monitors resource usage and automatically adjusts requests/limits without recreating pods.
@@ -257,11 +257,11 @@ spec:
           limits:
             memory: "4Gi"
             cpu: "2000m"
-          resizePolicy:
-          - resourceName: cpu
-            restartPolicy: NotRequired
-          - resourceName: memory
-            restartPolicy: RestartContainer
+        resizePolicy:
+        - resourceName: cpu
+          restartPolicy: NotRequired
+        - resourceName: memory
+          restartPolicy: RestartContainer
         env:
         - name: POSTGRES_PASSWORD
           valueFrom:
@@ -394,11 +394,11 @@ spec:
       limits:
         cpu: "500m"   # Don't request more than node capacity
         memory: "1Gi"  # Be realistic about max needs
-      resizePolicy:
-      - resourceName: cpu
-        restartPolicy: NotRequired
-      - resourceName: memory
-        restartPolicy: NotRequired
+    resizePolicy:
+    - resourceName: cpu
+      restartPolicy: NotRequired
+    - resourceName: memory
+      restartPolicy: NotRequired
 ```
 
 ## Advanced Pattern: Progressive Scaling
